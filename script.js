@@ -16,6 +16,7 @@ function updateTimer() {
 
         if (minutes === 25) {
             showNotification();
+            playNotificationSound(); // Adiciona a reprodução do som
         }
 
         if (minutes === 60) {
@@ -45,4 +46,9 @@ function showNotification() {
             }
         });
     }
+}
+
+function playNotificationSound() {
+    let audio = document.getElementById('notificationSound');
+    audio.play();
 }
