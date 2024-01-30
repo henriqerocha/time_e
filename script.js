@@ -1,11 +1,12 @@
 let timerInterval;
 let seconds = 0, minutes = 0, hours = 0;
-let alertTime = 25; // Tempo padrão de 25 minutos
+let alertTime = 1; // Tempo padrão de 1 minuto
+let alarmCount = 0; // Contador para controlar o número de vezes que o som deve ser reproduzido
 
 function setAlertTime() {
     // Obtém o valor do campo de input ou usa o tempo padrão se estiver vazio
     const inputValue = document.getElementById('inputTime').value;
-    alertTime = inputValue ? parseInt(inputValue, 10) : 25;
+    alertTime = inputValue ? parseInt(inputValue, 10) : 1;
 }
 
 function startTimer() {
@@ -22,6 +23,7 @@ function stopTimer() {
 
 function resetTimer() {
     stopTimer(); // Para o timer
+    alarmCount = 0; // Zera o contador de reprodução do som
     seconds = 0;
     minutes = 0;
     hours = 0;
@@ -35,16 +37,20 @@ function updateTimer() {
         seconds = 0;
         minutes++;
 
-        if (minutes === alertTime) { // Verifica se o tempo atingiu o tempo de alerta definido pelo usuário
-            showNotification();
-            playNotificationSound();
-            stopTimer(); // Adiciona a chamada para parar o timer
+        if (minutes >= alertTime) { // Modificação na condição para parar o cronômetro
+            stopTimer(); // Para o timer
+            alarmCount = 0; // Zera o contador de reprodução do som
         }
 
-        if (minutes === 60) {
-            minutes = 0;
-            hours++;
+        if (minutes % alertTime === 0 && minutes !== 0) { // Modificação na condição para mostrar a notificação
+            showNotification();
+            playNotificationSound();
         }
+    }
+
+    if (minutes === 60) {
+        minutes = 0;
+        hours++;
     }
 
     updateDisplay(); // Atualiza a exibição do cronômetro
@@ -77,4 +83,9 @@ function showNotification() {
 function playNotificationSound() {
     let audio = document.getElementById('notificationSound');
     audio.play();
+
+    // Agora, após 2 segundos, reproduza novamente o som
+    setTimeout(function () {
+        audio.play();
+    }, 2000);
 }
