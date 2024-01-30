@@ -6,7 +6,7 @@ let alarmCount = 0; // Contador para controlar o número de vezes que o som deve
 function setAlertTime() {
     // Obtém o valor do campo de input ou usa o tempo padrão se estiver vazio
     const inputValue = document.getElementById('inputTime').value;
-    alertTime = inputValue ? parseInt(inputValue, 10) : 1;
+    alertTime = inputValue ? parseInt(inputValue, 10) : 25;
 }
 
 function startTimer() {
