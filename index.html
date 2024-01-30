@@ -24,8 +24,30 @@
       top: 12px;
     }
     @media (max-width: 500px) {
+      .container{
+        margin: 40px 0;
+        width: 100% !important;
+        gap: 10px !important;
+      }
+      .forms{
+        width: 100% !important;
+      }
+      .form-group{
+        width: 100% !important;
+      }
       .time span{
         font-size: 3.5rem;
+      }
+      .buttons{
+        flex-direction: column;
+        width: 100%;
+        gap: 20px !important;
+      }
+      button{
+        width: 100% !important;
+      }
+      .time span{
+        font-size: 3rem;
       }
   }
   </style>
@@ -34,7 +56,7 @@
   <body class="bg-dark container">
     
     <div class="container" style="height: 100vh; color: #fff; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 15%;">
-      <div class="row" style="width: 30%;">
+      <div class="row forms" style="width: 30%;">
           <div class="form-group" style="width: 100%; text-align: center;">
               <label for="time-insert" style="margin-bottom: 20px;"></label>
               <input type="number" class="form-control" id="inputTime" placeholder="Informe o tempo para soar o alerta (minutos)" 
@@ -43,7 +65,7 @@
           </div>
       </div>
   
-      <div class="row" style="width: 100%; text-align: center; display: flex; justify-content: center; gap: 40px;">
+      <div class="row buttons" style="width: 100%; text-align: center; display: flex; justify-content: center; gap: 40px;">
           <button style="font-size: 1.5em; width: 20%;" type="button" class="btn btn-warning" onclick="startTimer()">Começar contagem</button>
           <button style="font-size: 1.5em; width: 20%;" type="button" class="btn btn-warning" onclick="stopTimer()">Parar contagem</button>
           <button style="font-size: 1.5em; width: 20%; color: ;" type="button" class="btn btn-danger" onclick="resetTimer()">Zerar contagem</button>
