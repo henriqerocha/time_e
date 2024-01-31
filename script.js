@@ -1,6 +1,6 @@
 let timerInterval;
 let seconds = 0, minutes = 0, hours = 0;
-let alertTime = 1; // Tempo padrão de 1 minuto
+let alertTime = 25; // Tempo padrão de 1 minuto
 let alarmCount = 0; // Contador para controlar o número de vezes que o som deve ser reproduzido
 
 function setAlertTime() {

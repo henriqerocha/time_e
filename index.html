@@ -8,9 +8,12 @@
   </head>
 
   <style>
+    .time span{
+      font-size: 8rem;
+    }
     .time span:not(:last-child):after{
         content: ":";
-        margin-left: 30px;    
+        margin-left: 10px;    
         color: #FFCA2C;
     }
     span, button{
@@ -34,7 +37,7 @@
       }
       .container{
         width: 100% !important;
-        gap: 20px !important;
+        gap: 10px !important;
       }
       .forms{
         width: 100% !important;
@@ -44,7 +47,8 @@
         width: 100% !important;
       }
       .time span{
-        font-size: 3.5rem;
+        font-size: 4rem;
+        width: 100%;
       }
       .buttons{
         flex-direction: column;
@@ -54,16 +58,27 @@
       button{
         width: 100% !important;
       }
-      .time span{
-        font-size: 3rem;
-      }
+      .time span:not(:last-child):after{
+        margin-left: 10px;    
+    }
   }
   </style>
 
 
   <body class="bg-dark container">
     
-    <div class="container" style="height: 100vh; color: #fff; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 15%;">
+    <div class="container" style="height: 100vh; color: #fff; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 10%;">
+
+      <div align="center" class="row">
+        <div class="col-12" style="margin: 0; padding: 0;">
+            <div class="time" onclick="startTimer()">
+                <span id="hours" style="margin: 0; padding: 0;">00</span>
+                <span id="minutes" style="margin: 0; padding: 0;">00</span>
+                <span id="seconds" style="margin: 0; padding: 0;">00</span>
+            </div>
+        </div>
+    </div>
+
       <div class="row forms" style="width: 30%;">
           <div class="form-group" style="width: 100%; text-align: center;">
               <label for="time-insert" style="margin-bottom: 20px;"></label>
@@ -79,15 +94,7 @@
           <button style="font-size: 1.5em; width: 20%; color: ;" type="button" class="btn btn-danger" onclick="resetTimer()">Zerar contagem</button>
       </div>
   
-      <div align="center" class="row" style="font-size: 7em;">
-          <div class="col-12">
-              <div class="time" onclick="startTimer()">
-                  <span id="hours">00</span>
-                  <span id="minutes">00</span>
-                  <span id="seconds">00</span>
-              </div>
-          </div>
-      </div>
+      
   
       <div align="center" class="row">
           <div class="col-12">
