@@ -89,3 +89,24 @@ function playNotificationSound() {
         audio.play();
     }, 2000);
 }
+
+
+
+document.addEventListener('keydown', function (event) {
+    // Verifica se a tecla pressionada é a tecla espaço
+    if (event.code === 'Space') {
+        // Chama a função toggleTimer para iniciar ou pausar o cronômetro
+        toggleTimer();
+    }
+});
+
+function toggleTimer() {
+    // Verifica se o cronômetro está em execução
+    if (timerInterval) {
+        // Se estiver em execução, pausa o cronômetro
+        stopTimer();
+    } else {
+        // Se não estiver em execução, inicia o cronômetro
+        startTimer();
+    }
+}
